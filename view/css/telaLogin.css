@@ -7,6 +7,7 @@ body
     display: flex;
     justify-content: space-between;
     margin: 30px;
+    
 }
 .logo img
 {
@@ -37,6 +38,15 @@ body
 }
 input, button
 {
+    background-color: rgb(231, 231, 231);
+    color: #000000;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 50px;
+    margin-top: 30px;
+    margin-left: 30px;
+    border: none;
     outline: none;
 }
 .social-media
@@ -56,24 +66,27 @@ input, button
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
 }
-main
+.social-media span a img
 {
-    font-family: "Arial";
-    background: #D9D6EF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 600px;
-    padding: 20px;
-    padding-bottom: 25%;
+    width: 30px;
+    background: #fff;
     border-radius: 20px;
+    padding: 1.5px;
 }
 main form
 {
+    width: 20%;
+    height: 500px;
+    background-color: #fff;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 1px 10px 30px rgba(0, 0, 0, .3);
+    border-radius: 35px;
+    padding: 50px 100px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 100%;
 }
 .container
 {
@@ -125,13 +138,12 @@ main form
     font-size: 15px;
     font-family: Arial, Helvetica, sans-serif;
 }
-
 main h1
 {
     display: flex;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     color: #3123b5;
-    margin-bottom: 20px;
-    margin-top: 100px;
+    margin-bottom: 50px;
+    margin-top: 30px;
 }
