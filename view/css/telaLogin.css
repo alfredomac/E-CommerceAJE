@@ -12,6 +12,7 @@ body
 .logo img
 {
     width: 100px;
+    position: absolute;
 }
 .menu ul
 {
@@ -20,21 +21,21 @@ body
 }
 .menu ul li
 {
-    margin: 15px;
+    margin: 14px;
 }
 .menu ul li a
 {
     text-decoration: none;
-    color: #fff;
+    color: #eee;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .menu ul li a img
 {
-    width: 30px;
+    width: 22px;
     background: #fff;
     border-radius: 20px;
-    padding: 1.5px;
+    padding: 3px;
 }
 input, button
 {
@@ -66,13 +67,25 @@ input, button
     color: #fff;
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
+    font-weight: bold; /*Negrito*/
+    transition: .5s ease;
 }
 .enter
 {
+    padding: 10px;
+    margin-left: -32px;
+}
+.enter:hover
+{
     background: #283371;
     border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
+.subscribe
+{
+    padding: 10px;
+    margin-right: -32px;
 }
 .subscribe:hover
 {
@@ -81,7 +94,7 @@ input, button
     padding-left: 18px;
     padding-right: 18px;
 }
-main form
+form
 {
     width: 20%;
     height: 500px;
@@ -125,34 +138,52 @@ main form
     width: 100%;
     padding: 10px;
     margin: 10px;
+    margin-top: 30px;
+    margin-left: -1px;
     border-radius: 10px;
     border: none;
     background: #283371;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
+    font-weight: bold;
     color: #fff;
+}
+button:hover
+{
+    background: #1e3094;
 }
 .container button:hover
 {
     background: #283371;
 }
-.container span
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-left: -20px;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-main h1
+
+h1
 {
     display: flex;
     justify-content: center;
     font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #3123b5;
+    color: #1e3094;
     margin-bottom: 60px;
     margin-top: 30px;
+}
+span input
+{
+    margin-top: -8px;
+    margin-bottom: 20px;   
+    margin-right: 16px;
+    margin-left: -10px;
+}
+span
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #7c7c83;
+    font-weight: bold;
+}
+span a
+{
+    text-decoration: none;
+    color: #283371;
+    margin-right: 10px;
 }
