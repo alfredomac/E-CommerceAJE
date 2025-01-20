@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Tela de Login</title>
+        <link rel="stylesheet" href="/view/css/telaSignUp.css">
+        <script defer src="/view/js/telaSignUp.js"></script>
+    </head>
+    <body>
+        <nav class="menu">
+            <div class="logo">
+                <a href="#"><img src="/view/Logo IBC Acarape 2023 (1).png" alt="logo"></a>
+            </div>
+            <ul>
+                <li><a href="#"><img src="/view/favoritos.png" alt="favoritos"></a></li>
+                <li><a href="#"><img src="/view/icons8-sacola-de-compras-50.png" alt=""></a></li>
+                <li><a href="#">Página inicial</a></li>
+            </ul>
+        </nav>
+        <main>
+            <form action="post" id="emailForm">
+                <div class="login">
+                    <div class="social-media">
+                        <span class="enter"><a href="/view/html/telaLogin.html">Entrar</a></span>
+                        <span class="subscribe"><a href="/view/html/telaSignUp.html">Inscrever-se</a></span>
+                    </div>
+                    <div class="gotAccount">
+                        <h4>Já tens uma conta?</h4>
+                        <p><a href="/view/html/telaLogin.html">Entrar</a></p>
+                    </div>
+                    <div class="nomes">
+                        <input type="text" id="firstName" placeholder="Primeiro Nome"required>
+                        <input type="text" id="lasttName" placeholder="Último Nome"required>
+                    </div>
+                    <section class="container">
+                        <input type="text" id="emailInput" placeholder="E-mail" required>
+                        <input type="password" id="passwordInput" placeholder="Palavra-Passe" required>
+                    </section>
+                    <span><input type="checkbox" id="rememberMe"> Termos & privacidades </span>
+                    <button type="submit">Inscrever-se</button>
+                </div>
+            </form>
+        </main>
+    </body>
+</html>
