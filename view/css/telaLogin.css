@@ -6,7 +6,7 @@ body
 {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 15px;
     
 }
 .logo img
@@ -29,6 +29,7 @@ body
     color: #eee;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 .menu ul li a img
 {
@@ -36,6 +37,11 @@ body
     background: #fff;
     border-radius: 20px;
     padding: 3px;
+}
+.menu ul li a:hover img
+{
+    background: grey;
+    transition: .5s ease;
 }
 input, button
 {
@@ -68,7 +74,6 @@ input, button
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: bold; /*Negrito*/
-    transition: .5s ease;
 }
 .enter
 {
@@ -85,6 +90,7 @@ input, button
 .subscribe:hover
 {
     background: #283371;
+    transition: .5s ease;
     border-radius: 20px;
     padding-left: 18px;
     padding-right: 18px;
@@ -92,7 +98,7 @@ input, button
 form
 {
     width: 20%;
-    height: 500px;
+    height: 455px;
     background-color: #c3c3c3;
     position: absolute;
     top: 15%;
@@ -101,7 +107,7 @@ form
     box-shadow: 1px 10px 30px rgba(0, 0, 0, .3);
     border-radius: 35px;
     padding: 50px 100px;
-    margin-top: 55px;
+    margin-top: 45px;
     display: flex;
     flex-direction: column;
 }
@@ -146,12 +152,8 @@ form
 button:hover
 {
     background: #1e3094;
+    transition: .5s ease;
 }
-.container button:hover
-{
-    background: #283371;
-}
-
 h1
 {
     display: flex;
