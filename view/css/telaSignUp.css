@@ -41,6 +41,7 @@ body
 .menu ul li a:hover img
 {
     background: grey;
+    transition: .5s ease;
 }
 input, button
 {

@@ -61,6 +61,7 @@ input, button
     display: flex;
     justify-content: space-between;
     background: #7c7c83;
+    margin-top: 40px;
     padding: 8px;
     padding-right: 60px;
     padding-left: 62px;
@@ -74,17 +75,20 @@ input, button
     font-family:Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: bold; /*Negrito*/
+    transition: .5s ease;
 }
 .enter
 {
     background: #283371;
     border-radius: 20px;
     padding: 10px;
+    margin-right: -32px;
     margin-left: -32px;
 }
 .subscribe
 {
     padding: 10px;
+    margin-left: 20px;
     margin-right: -32px;
 }
 .subscribe:hover
@@ -119,14 +123,6 @@ form
     width: 100%;
     margin-top: 20px;
 }
-.container
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 20px;
-}
 .container input
 {
     width: 100%;
@@ -134,7 +130,7 @@ form
     margin: 10px;
     border-radius: 10px;
 }
-.login button
+.container button
 {
     width: 100%;
     padding: 10px;
@@ -148,8 +144,9 @@ form
     font-size: 18px;
     font-weight: bold;
     color: #fff;
+    cursor: pointer;
 }
-button:hover
+.container button:hover
 {
     background: #1e3094;
     transition: .5s ease;
