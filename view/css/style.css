@@ -274,3 +274,16 @@ hr {
 .frete-margem {
   margin-top: 60px;
 }
+
+/* sessão entretenimento*/
+.img-intretenimento {
+  width: 800px;
+  height: 300px;
+}
+
+.card-entretenimento {
+  background: rgba(0, 0, 0, 0.1);
+}
+.card-title-entretenimento {
+  color: var(--color-white);
+}
