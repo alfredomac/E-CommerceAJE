@@ -127,6 +127,16 @@ main form
 {
     background: #283371;
 }
+
+.btn-comprar-detalhe {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
 .container span
 {
     display: flex;
