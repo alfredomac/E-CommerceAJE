@@ -232,7 +232,7 @@ hr {
 
 /*footer da pagina*/
 .bg-footer {
-  background: var(--color-debug-light);
+  background:rgba(0, 0, 0, 0.4);
   height: 60px;
   margin-top: 8px;
   color: var(--color-white);
@@ -273,14 +273,4 @@ hr {
 }
 .frete-margem {
   margin-top: 60px;
-}
-footer p
-{
-  color: var(--color-dark-text);
-  text-align: center;
-  padding-top: 20px;
-  font-size: 17.5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  color: #1e3094;
 }
