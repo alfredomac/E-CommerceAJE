@@ -1,0 +1,42 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+.error-alert{
+  margin-bottom: 3px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.form-group input:invalid {
+  border: 2px solid red;
+}
+
+.form-group input:valid {
+  border: 2px solid green;
+}
+
+.error {
+  color: red;
+  font-size: 0.9em;
+  display: none;
+  
+}
+
+.error.active {
+  display: block;
+}
+
+
