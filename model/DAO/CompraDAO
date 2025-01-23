@@ -1,0 +1,127 @@
+
+public class CompraDAO extends DAO {
+
+    // Método para obter todas as categorias
+	public List<Compra> obterTodas() {
+		List<Compra> Compras = new ArrayList<>();
+		String sql = "SELECT * FROM Compra";
+
+		try {
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int idUsuario = rs.getInt("idUsuario");
+				Timestamp dataHora = rs.getString("dataHora");
+				
+				Compras.add(new Compra(id,idUsuario,dataHora));
+			}
+			
+			return Compras;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+
+    // Método para obter uma categoria pelo ID
+	public Compra obter(int id) {
+		Compra compra = null;
+		String sql = "SELECT * FROM Compra WHERE id = ?";
+
+		try {		
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				int id = rs.getInt("id");
+				int idUsuario = rs.getInt("idUsuario");
+				Timestamp dataHora = rs.getString("dataHora");
+				
+				Compra = new Compra(id,idUsuario,dataHora);
+			}
+			
+			return compra;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+
+	
+	// Método para inserir uma nova categoria
+	public boolean inserir(int idUsuario, Timestamp dataHora) {
+		String sql = "INSERT INTO Compra (idUsuario,dataHora) VALUES (?,?)";
+
+		try {	
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idUsuario);
+			pstmt.setString(2, dataHora);
+			
+			int tuplasInseridas = pstmt.executeUpdate();
+			
+			if (tuplasInseridas > 0)
+				return true;
+			else
+				return false;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	
+	// Método para atualizar uma categoria existente
+	public boolean atualizar(String idUsuario, Timestamp dataHora, int id) {
+		String sql = "UPDATE Compra SET nome = ? endereco = ? WHERE id = ?";
+
+		try {		
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idUsuario);
+			pstmt.setString(2, dataHora);
+			
+			int tuplasModificadas = pstmt.executeUpdate();
+
+			if (tuplasModificadas > 0)
+				return true;
+			else
+				return false;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+	
+	// Método para remover uma categoria pelo ID
+	public boolean remover(int id) {
+		String sql = "DELETE FROM Compra WHERE id = ?";
+
+		try {		
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, idUsuario);
+			pstmt.setTimestamp(2, dataHora);
+			pstmt.setString(3, id);
+
+			int tuplasRemovidas = pstmt.executeUpdate();
+			
+			if (tuplasRemovidas > 0)
+				return true;
+			else
+				return false;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+
+}
