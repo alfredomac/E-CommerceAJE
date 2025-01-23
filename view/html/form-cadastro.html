@@ -19,28 +19,38 @@
         
     </head>
     <body>
-        <nav class="menu">
+        <nav class="menu fixed-top navbar navbar-expand" id="main">
             <div class="logo">
                 <a href="main.html"><img src="../Logo IBC Acarape 2023 (1).png" alt="logo"></a>
             </div>
             <ul>
+                
                 <li><a href="#"><img src="../favoritos.png" alt="favoritos"></a></li>
-                <li><a href="#"><img src="../icons8-sacola-de-compras-50.png" alt=""></a></li>
+                <li><a href="#"><img src="../icons8-sacola-de-compras-50.png" alt=""><sup><strong>2x</strong></sup></a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle"data-toggle="dropdown" href="#">
+                      <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="telaLogin.html">Entrar</a>
+                        <a class="dropdown-item" href="form-cadastro.html">registrar</a>
+                    </div>                  
+                </li>
                 <li><a href="main.html">Página inicial</a></li>
             </ul>
         </nav>
-        <section>
+        <section class="section1">
             <div class="container-form m-5">
                 <div class="row"></div>
                 <h1 class="text-center titulo-produto">Formulário de Cadastro</h1>
                 <hr>
                 <form action="">
-                    <div class="card p-3">
-                        <div class="row">
+                    <div class="card p-4 pl-6">
+                        <div class="row ">
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
+                                        <button class="form-control label-form">
                                             <label for="" class="input-control btn">Nome</label>
                                         </button>
                                     </div>
@@ -51,8 +61,8 @@
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
-                                            <label for="" class="input-control btn">Nome</label>
+                                        <button class="form-control label-form">
+                                            <label for="" class="input-control btn">Sobrenome</label>
                                         </button>
                                     </div>
                                     <input type="text" class="form-control">
@@ -61,11 +71,11 @@
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
-                                            <label for="" class="input-control btn">Nome</label>
+                                        <button class="form-control label-form">
+                                            <label for="" class="input-control btn">email</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="email" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -73,8 +83,8 @@
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
-                                            <label for="" class="input-control btn">Nome</label>
+                                        <button class="form-control label-form">
+                                            <label for="" class="input-control btn">usuario</label>
                                         </button>
                                     </div>
                                     <input type="text" class="form-control">
@@ -84,32 +94,55 @@
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
-                                            <label for="" class="input-control btn">Nome</label>
+                                        <button class="form-control label-form">
+                                            <label for="" class="input-control">endereço</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <select name="" id="" class="form-control endereco">
+                                        <option class="form-control text-center">selecione o estado</option>
+                                        <option class="form-control ">Ceará</option>
+                                        <option class="form-control">Minas Gerais</option>
+                                        <option class="form-control">São Paulo</option>
+                                    </select>
+                                    <input type="text" class="form-control ml-2" placeholder="digite seu municipio">
                                 </div>
                             </div>
                             <div class="col-md-4 ">
                                 <div class="input-group mb-5">
                                     <div class="input-group-prepend">
-                                        <button>
-                                            <label for="" class="input-control btn">Nome</label>
+                                        <button class="form-control label-form">
+                                            <label for="" class="input-control btn">senha</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="password" class="form-control input-form">
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <button class="btn btn-outline-primary">Cadastrar</button>
+                        <hr>
+                        <div class="col-md-4 m-auto d-flex">
+                            <div class="input-group">
+                                <button type="clear" class="btn btn-outline-danger btn-cancelar-cadastrar">Cancelar</button>
+                            </div>
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-outline-primary btn-cancelar-cadastrar">Cadastrar</button>
+                            </div>
                         </div>
                     </div>
                 
             </form>
         </div>
-            </div>
+        </div>
         </section>
+        <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+    
+      <script>
+        // Get the current year for the copyright
+        $('#year').text(new Date().getFullYear());
+      </script>
     </body>
 </html>
