@@ -70,7 +70,7 @@ img {
   }
   a {
     color: var(--color-primary);
-    text-decoration: none;
+    text-decoration: none !important;
   }
 
  /* Messages */
@@ -233,11 +233,16 @@ hr {
 /*footer da pagina*/
 .bg-footer {
   background:rgba(0, 0, 0, 0.4);
-  height: 60px;
+  height: auto;
   margin-top: 8px;
   color: var(--color-white);
+  padding-top: 20px;
 }
-
+.bg-footer a {
+  color: var(--color-white);
+  font-size: 12px;
+}
+/* Terminou footer da pagina*/
 
 /*sessão formulario de cadastro*/
 
@@ -274,6 +279,7 @@ hr {
 .frete-margem {
   margin-top: 60px;
 }
+/* terminou detalhes do produto*/
 
 /* sessão entretenimento*/
 .img-intretenimento {
@@ -287,3 +293,4 @@ hr {
 .card-title-entretenimento {
   color: var(--color-white);
 }
+/* terminou sessão entretenimento*/
