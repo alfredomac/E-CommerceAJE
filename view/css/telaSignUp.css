@@ -6,12 +6,13 @@ body
 {
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    margin: 15px;
     
 }
 .logo img
 {
     width: 100px;
+    position: absolute;
 }
 .menu ul
 {
@@ -20,32 +21,32 @@ body
 }
 .menu ul li
 {
-    margin: 15px;
+    margin: 14px;
 }
 .menu ul li a
 {
     text-decoration: none;
-    color: #fff;
+    color: #eee;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
 }
 .menu ul li a img
 {
-    width: 30px;
+    width: 22px;
     background: #fff;
     border-radius: 20px;
-    padding: 1.5px;
+    padding: 3px;
 }
-sup {
-    border-radius: 20px;
-    margin-left: 2px;
-    background: #283371;
+.menu ul li a:hover img
+{
+    background: grey;
+    transition: .5s ease;
 }
-.form-login
+input, button
 {
     background-color: rgb(231, 231, 231);
     color: #000000;
-    font-weight: bold;
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
@@ -78,17 +79,10 @@ sup {
 }
 .enter
 {
-    background: #283371;
-    border-radius: 20px;
     padding: 10px;
     margin-left: -32px;
 }
-.subscribe
-{
-    padding: 10px;
-    margin-right: -32px;
-}
-.subscribe:hover
+.enter:hover
 {
     background: #283371;
     transition: .5s ease;
@@ -96,10 +90,47 @@ sup {
     padding-left: 18px;
     padding-right: 18px;
 }
-main form
+.subscribe
+{
+    background: #283371;
+    border-radius: 20px;
+    padding: 10px;
+    margin-right: -32px;
+}
+.gotAccount
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+}
+.gotAccount h4
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #283371;
+}
+.gotAccount a
+{
+    text-decoration: none;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    background: #283371;
+    padding: 5px;
+    border-radius: 10px;
+    transition: .5 ease;
+}
+.gotAccount a:hover
+{
+    background: #1e3094;
+    transition: .5s ease;
+}
+form
 {
     width: 20%;
-    height: 500px;
+    height: 455px;
     background-color: #c3c3c3;
     position: absolute;
     top: 15%;
@@ -108,6 +139,7 @@ main form
     box-shadow: 1px 10px 30px rgba(0, 0, 0, .3);
     border-radius: 35px;
     padding: 50px 100px;
+    margin-top: 45px;
     display: flex;
     flex-direction: column;
 }
@@ -119,65 +151,47 @@ main form
     width: 100%;
     margin-top: 20px;
 }
-
- .form-login-input
-{
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    border: none;
-}
-.form-login-input-button
-{
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    border: none;
-    background: #3123b5;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    color: #fff;
-    cursor: pointer;
-}
-.form-login-input-button:hover
-{
-    background: #283371;
-}
-
-.btn-comprar-detalhe {
-    width: 100%;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    cursor: pointer;
-}
-.container span
+.container
 {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    margin-top: 30px;
-    margin-left: -20px;
-    font-size: 15px;
-    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    margin-top: 20px;
 }
-main h1
+.container input
 {
-    display: flex;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #3123b5;
-    margin-bottom: 50px;
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.login button
+{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
     margin-top: 30px;
+    margin-left: -1px;
+    border-radius: 10px;
+    border: none;
+    background: #283371;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+button:hover
+{
+    background: #1e3094;
+    transition: .5s ease;
 }
 span input
 {
-    margin-right: 10px;
-    margin-left: -200px;
+    margin-top: -8px;
+    margin-bottom: 20px;   
+    margin-right: 16px;
+    margin-left: -10px;
 }
 span
 {
@@ -192,24 +206,26 @@ span a
     color: #283371;
     margin-right: 10px;
 }
-.container button 
+.nomes
 {
+    display: flex;
+    justify-content: center;
     width: 100%;
-    padding: 10px;
-    margin: 10px;
-    margin-top: 30px;
-    margin-left: -1px;
-    border-radius: 10px;
-    border: none;
-    background: #283371;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
+
 }
-.container button:hover
+.nomes input
 {
-    background: #1e3094;
-    transition: .5s ease;
+    width: 60%;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.nomes input:first-child
+{
+    margin-left: -8px;
+}
+.nomes input:last-child
+{
+    margin-left: 30px;
+    margin-right: -10px;
 }
