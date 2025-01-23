@@ -1,33 +1,41 @@
-document.getElementById("emailForm").addEventListener("submit", function (event) {
-    const emailInput = document.getElementById("emailInput");
-    const passwordInput = document.getElementById("passwordInput");
-        
-    const email = emailInput.value.trim();
-    const password = passwordInput.value.trim();
+       // Função de validação
+       function validateLoginForm(event) {
+        const emailInput = document.getElementById("emailInput");
+        const passwordInput = document.getElementById("passwordInput");
 
-        // Validação do e-mail
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const email = emailInput.value.trim();
+        const password = passwordInput.value.trim();
 
-    if (!email) {
-        alert("Por favor, insira o e-mail.");
-        emailInput.focus();
-        event.preventDefault(); // Impede o envio do formulário
-        return;
-    } else if (!emailRegex.test(email)) {
-        alert("Por favor, insira um e-mail válido.");
-        emailInput.focus();
-        event.preventDefault();
-        return;
+        // Validação do formato do e-mail
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!email) {
+            alert("Por favor, insira o e-mail.");
+            emailInput.focus();
+            event.preventDefault(); // Impede o envio do formulário
+            return false;
+        }
+
+        if (!emailRegex.test(email)) {
+            alert("Por favor, insira um e-mail válido.");
+            emailInput.focus();
+            event.preventDefault();
+            return false;
+        }
+
+        if (!password) {
+            alert("Por favor, insira a palavra-passe.");
+            passwordInput.focus();
+            event.preventDefault();
+            return false;
+        }
+
+        // Se todas as validações forem atendidas, o formulário será enviado
+        return true;
     }
 
-        // Validação da senha
-    if (!password) {
-        alert("Por favor, insira a palavra-passe.");
-        passwordInput.focus();
-        event.preventDefault();
-        return;
-    }
-
-        // Se passar pelas validações, o formulário será enviado
-    alert("Formulário enviado com sucesso!");
-});
+    // Adicionar evento ao formulário
+    document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("emailForm");
+        form.addEventListener("submit", validateLoginForm);
+    });

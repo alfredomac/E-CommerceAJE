@@ -6,13 +6,12 @@ body
 {
     display: flex;
     justify-content: space-between;
-    margin: 15px;
+    margin: 30px;
     
 }
 .logo img
 {
     width: 100px;
-    position: absolute;
 }
 .menu ul
 {
@@ -21,32 +20,32 @@ body
 }
 .menu ul li
 {
-    margin: 14px;
+    margin: 15px;
 }
 .menu ul li a
 {
     text-decoration: none;
-    color: #eee;
+    color: #fff;
     font-size: 18px;
     font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
 }
 .menu ul li a img
 {
-    width: 22px;
+    width: 30px;
     background: #fff;
     border-radius: 20px;
-    padding: 3px;
+    padding: 1.5px;
 }
-.menu ul li a:hover img
-{
-    background: grey;
-    transition: .5s ease;
+sup {
+    border-radius: 20px;
+    margin-left: 2px;
+    background: #283371;
 }
-input, button
+.form-login
 {
     background-color: rgb(231, 231, 231);
     color: #000000;
+    font-weight: bold;
     padding: 10px;
     padding-left: 25px;
     padding-right: 25px;
@@ -82,13 +81,11 @@ input, button
     background: #283371;
     border-radius: 20px;
     padding: 10px;
-    margin-right: -32px;
     margin-left: -32px;
 }
 .subscribe
 {
     padding: 10px;
-    margin-left: 20px;
     margin-right: -32px;
 }
 .subscribe:hover
@@ -99,10 +96,10 @@ input, button
     padding-left: 18px;
     padding-right: 18px;
 }
-form
+main form
 {
     width: 20%;
-    height: 455px;
+    height: 500px;
     background-color: #c3c3c3;
     position: absolute;
     top: 15%;
@@ -111,7 +108,6 @@ form
     box-shadow: 1px 10px 30px rgba(0, 0, 0, .3);
     border-radius: 35px;
     padding: 50px 100px;
-    margin-top: 45px;
     display: flex;
     flex-direction: column;
 }
@@ -123,14 +119,80 @@ form
     width: 100%;
     margin-top: 20px;
 }
-.container input
+
+ .form-login-input
 {
     width: 100%;
     padding: 10px;
     margin: 10px;
     border-radius: 10px;
+    border: none;
 }
-.container button
+.form-login-input-button
+{
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #3123b5;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #fff;
+    cursor: pointer;
+}
+.form-login-input-button:hover
+{
+    background: #283371;
+}
+
+.btn-comprar-detalhe {
+    width: 100%;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+}
+.container span
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-left: -20px;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+main h1
+{
+    display: flex;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #3123b5;
+    margin-bottom: 50px;
+    margin-top: 30px;
+}
+span input
+{
+    margin-right: 10px;
+    margin-left: -200px;
+}
+span
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #7c7c83;
+    font-weight: bold;
+}
+span a
+{
+    text-decoration: none;
+    color: #283371;
+    margin-right: 10px;
+}
+.container button 
 {
     width: 100%;
     padding: 10px;
@@ -150,34 +212,4 @@ form
 {
     background: #1e3094;
     transition: .5s ease;
-}
-h1
-{
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #1e3094;
-    margin-bottom: 60px;
-    margin-top: 30px;
-}
-span input
-{
-    margin-top: -8px;
-    margin-bottom: 20px;   
-    margin-right: 16px;
-    margin-left: -10px;
-}
-span
-{
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 15px;
-    color: #7c7c83;
-    font-weight: bold;
-}
-span a
-{
-    text-decoration: none;
-    color: #283371;
-    margin-right: 10px;
 }
