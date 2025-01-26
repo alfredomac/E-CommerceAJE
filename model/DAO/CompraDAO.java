@@ -1,10 +1,25 @@
+import java.security.Timestamp;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-public class CategoriaDAO extends DAO {
+public class CompraDAO {
+
+	private Connection conn;
+
+	public CompraDAO () {
+		//Conexao a = new Conexao();
+        this.conn = Conexao.getConexao();
+	}
 
     // Método para obter todas as categorias
-	public List<Categoria> obterTodas() {
-		List<Categoria> categorias = new ArrayList<>();
-		String sql = "SELECT * FROM Categoria";
+	public List<Compra> obterTodas() {
+		List<Compra> Compras = new ArrayList<>();
+		String sql = "SELECT * FROM Compra";
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -12,12 +27,12 @@ public class CategoriaDAO extends DAO {
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String descricao = rs.getString("descricao");
-				
-				categorias.add(new Categoria(id, descricao));
+				int idUsuario = rs.getInt("idUsuario");
+				Timestamp dataHora = rs.getTimestamp("dataHora");
+				Compras.add(new Compra(id,idUsuario,dataHora));
 			}
 			
-			return categorias;
+			return Compras;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -27,9 +42,9 @@ public class CategoriaDAO extends DAO {
 
 
     // Método para obter uma categoria pelo ID
-	public Categoria obter(int id) {
-		Categoria categoria = null;
-		String sql = "SELECT * FROM Categoria WHERE id = ?";
+	public Compra obter(int id) {
+		Compra compra = null;
+		String sql = "SELECT * FROM Compra WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -38,11 +53,14 @@ public class CategoriaDAO extends DAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				String descricao = rs.getString("descricao");
-				categoria = new Categoria(id, descricao);
+				int idC = rs.getInt("id");
+				int idUsuario = rs.getInt("idUsuario");
+				Timestamp dataHora = rs.getTimestamp("dataHora");
+				
+				compra = new Compra(idC,idUsuario,dataHora);
 			}
 			
-			return categoria;
+			return compra;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -52,12 +70,12 @@ public class CategoriaDAO extends DAO {
 
 	
 	// Método para inserir uma nova categoria
-	public boolean inserir(String descricao) {
-		String sql = "INSERT INTO Categoria (descricao) VALUES (?)";
+	public boolean inserir(int idUsuario, Timestamp dataHora) {
+		String sql = "INSERT INTO Compra (idUsuario,dataHora) VALUES (?,?)";
 
 		try {	
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, descricao);
+			pstmt.setInt(1, idUsuario);
 			
 			int tuplasInseridas = pstmt.executeUpdate();
 			
@@ -74,13 +92,12 @@ public class CategoriaDAO extends DAO {
 
 	
 	// Método para atualizar uma categoria existente
-	public boolean atualizar(String descricao, int id) {
-		String sql = "UPDATE Categoria SET descricao = ? WHERE id = ?";
+	public boolean atualizar(int idUsuario, Timestamp dataHora, int id) {
+		String sql = "UPDATE Compra SET nome = ? endereco = ? WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, descricao);
-			pstmt.setInt(2, id);
+			pstmt.setInt(1, idUsuario);
 			
 			int tuplasModificadas = pstmt.executeUpdate();
 
@@ -98,12 +115,12 @@ public class CategoriaDAO extends DAO {
 	
 	// Método para remover uma categoria pelo ID
 	public boolean remover(int id) {
-		String sql = "DELETE FROM Categoria WHERE id = ?";
+		String sql = "DELETE FROM Compra WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			
+
 			int tuplasRemovidas = pstmt.executeUpdate();
 			
 			if (tuplasRemovidas > 0)

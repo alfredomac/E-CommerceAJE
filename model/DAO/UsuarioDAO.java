@@ -1,5 +1,19 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-public class UsuarioDAO extends DAO {
+public class UsuarioDAO {
+
+	private Connection conn;
+
+	public UsuarioDAO () {
+		//Conexao a = new Conexao();
+        this.conn = Conexao.getConexao();
+	}
 
     // Método para obter todas as categorias
 	public List<Usuario> obterTodas() {
@@ -12,15 +26,15 @@ public class UsuarioDAO extends DAO {
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String descricao = rs.getString("nome");
-				float endereco = rs.getString("endereco");
+				String nome = rs.getString("nome");
+				String endereco = rs.getString("endereco");
 				String email = rs.getString("email");
-				int senha = rs.getString("senha");
+				String senha = rs.getString("senha");
 				
-				Usuarios.add(new Usuario(id, nome,endereco,email,senha));
+				usuarios.add(new Usuario(id,nome,endereco,email,senha));
 			}
 			
-			return categorias;
+			return usuarios;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -31,7 +45,7 @@ public class UsuarioDAO extends DAO {
 
     // Método para obter uma categoria pelo ID
 	public Usuario obter(int id) {
-		Usuario categoria = null;
+		Usuario usuario = null;
 		String sql = "SELECT * FROM Usuario WHERE id = ?";
 
 		try {		
@@ -41,16 +55,16 @@ public class UsuarioDAO extends DAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				int id = rs.getInt("id");
-				String descricao = rs.getString("nome");
-				float endereco = rs.getString("endereco");
+				int idU = rs.getInt("id");
+				String nome = rs.getString("nome");
+				String endereco = rs.getString("endereco");
 				String email = rs.getString("email");
-				int senha = rs.getString("senha");
+				String senha = rs.getString("senha");
 				
-				usuario = new Usuario(id, nome,endereco,email,senha);
+				usuario = new Usuario(idU, nome,endereco,email,senha);
 			}
 			
-			return categoria;
+			return usuario;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,7 +74,7 @@ public class UsuarioDAO extends DAO {
 
 	
 	// Método para inserir uma nova categoria
-	public boolean inserir(String descricao, String endereco, String email, String senha ) {
+	public boolean inserir(String nome, String endereco, String email, String senha ) {
 		String sql = "INSERT INTO Usuario (nome,endereco,email,senha) VALUES (?,?,?,?)";
 
 		try {	
@@ -85,7 +99,7 @@ public class UsuarioDAO extends DAO {
 
 	
 	// Método para atualizar uma categoria existente
-	public boolean atualizar(String descricao, String endereco, String email, String senha  , int id) {
+	public boolean atualizar(String nome, String endereco, String email, String senha  , int id) {
 		String sql = "UPDATE Usuario SET nome = ? endereco = ? email = ? senha = ? WHERE id = ?";
 
 		try {		
@@ -115,11 +129,11 @@ public class UsuarioDAO extends DAO {
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, nome);
-			pstmt.setString(2, endereco);
-			pstmt.setString(3, email);
-			pstmt.setString(4, senha);
-			pstmt.setString(5, id);
+			pstmt.setString(1, "nome");
+			pstmt.setString(2, "endereco");
+			pstmt.setString(3, "email");
+			pstmt.setString(4, "senha");
+			pstmt.setInt(5,id);
 
 			int tuplasRemovidas = pstmt.executeUpdate();
 			
@@ -132,6 +146,11 @@ public class UsuarioDAO extends DAO {
 			e.printStackTrace();
 			return false;
 		}
+	}
+
+	public static void main(String[] args) {
+		
+
 	}
 
 }

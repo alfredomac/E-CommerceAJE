@@ -1,10 +1,24 @@
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
-public class ProdutoDAO extends DAO {
+public class ItemDAO {
+
+	private Connection conn;
+
+	public ItemDAO () {
+		//Conexao a = new Conexao();
+        this.conn = Conexao.getConexao();
+	}
 
     // Método para obter todas as categorias
-	public List<Produto> obterTodas() {
-		List<Produto> produtos = new ArrayList<>();
-		String sql = "SELECT * FROM Produto";
+	public List<Item> obterTodas() {
+		List<Item> items = new ArrayList<>();
+		String sql = "SELECT * FROM item";
 
 		try {
 			Statement stmt = conn.createStatement();
@@ -12,15 +26,15 @@ public class ProdutoDAO extends DAO {
 
 			while (rs.next()) {
 				int id = rs.getInt("id");
-				String descricao = rs.getString("descricao");
-				float preco = rs.getFloat("preco");
-				String foto = rs.getString("foto");
+				int idProduto = rs.getInt("idProduto");
+				int idCompra = rs.getInt("idCompra");
 				int quantidade = rs.getInt("quantidade");
+				float preco = rs.getInt("preco");
 				
-				produtos.add(new Produto(id, descricao,preco,foto,quantidade));
+				items.add(new Item(id,idCompra,idProduto, quantidade, preco));
 			}
 			
-			return produtos;
+			return items;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -30,9 +44,9 @@ public class ProdutoDAO extends DAO {
 
 
     // Método para obter uma categoria pelo ID
-	public Produto obter(int id) {
-		Produto produto = null;
-		String sql = "SELECT * FROM Produto WHERE id = ?";
+	public Item obter(int id) {
+		Item item = null;
+		String sql = "SELECT * FROM item WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -41,16 +55,16 @@ public class ProdutoDAO extends DAO {
 			ResultSet rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
-				int id = rs.getInt("id");
-				String descricao = rs.getString("descricao");
-				float preco = rs.getFloat("preco");
-				String foto = rs.getString("foto");
+				int idI = rs.getInt("id");
+				int idProduto = rs.getInt("idProduto");
+				int idCompra = rs.getInt("idCompra");
 				int quantidade = rs.getInt("quantidade");
+				float preco = rs.getInt("preco");
 				
-				produto = new Produto(id, descricao,preco,foto,quantidade);
+				item = new Item(idI,idCompra,idProduto, quantidade, preco);
 			}
 			
-			return produto;
+			return item;
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -60,12 +74,15 @@ public class ProdutoDAO extends DAO {
 
 	
 	// Método para inserir uma nova categoria
-	public boolean inserir(String descricao, float preco, String foto, int quantidade ) {
-		String sql = "INSERT INTO Produto (descricao,preco,foto,quantidade) VALUES (?,?,?,?)";
+	public boolean inserir(int idCompra, int idProduto, int quantidade, float preco ) {
+		String sql = "INSERT INTO item (idCompra, idProduto, quantidade, preco) VALUES (?,?,?,?)";
 
 		try {	
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, descricao);
+			pstmt.setInt(1, idCompra);
+			pstmt.setInt(2, idProduto);
+			pstmt.setInt(3, quantidade);
+			pstmt.setFloat(4, preco);
 			
 			int tuplasInseridas = pstmt.executeUpdate();
 			
@@ -82,16 +99,15 @@ public class ProdutoDAO extends DAO {
 
 	
 	// Método para atualizar uma categoria existente
-	public boolean atualizar(String descricao, float preco, String foto, int quantidade , int id) {
-		String sql = "UPDATE Produto SET descricao = ? preco = ? foto = ? quantidade = ? WHERE id = ?";
+	public boolean atualizar(int idCompra, int idProduto, int quantidade, float preco, int id) {
+		String sql = "UPDATE item SET idCompra = ? idProduto = ? quantidade = ? preco = ?  WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, descricao);
-			pstmt.setFloat(2, preco);
-			pstmt.setString(3, foto);
-			pstmt.setInt(4, quantidade);
-			pstmt.setInt(5, id);
+			pstmt.setInt(1, idCompra);
+			pstmt.setInt(2, idProduto);
+			pstmt.setInt(3, quantidade);
+			pstmt.setFloat(4, preco);
 			
 			int tuplasModificadas = pstmt.executeUpdate();
 
@@ -109,16 +125,12 @@ public class ProdutoDAO extends DAO {
 	
 	// Método para remover uma categoria pelo ID
 	public boolean remover(int id) {
-		String sql = "DELETE FROM Produto WHERE id = ?";
+		String sql = "DELETE FROM item WHERE id = ?";
 
 		try {		
 			PreparedStatement pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, descricao);
-			pstmt.setFloat(2, preco);
-			pstmt.setString(3, foto);
-			pstmt.setInt(4, quantidade);
-			pstmt.setInt(5, id);
-			
+			pstmt.setInt(1, id);
+
 			int tuplasRemovidas = pstmt.executeUpdate();
 			
 			if (tuplasRemovidas > 0)

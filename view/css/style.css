@@ -70,7 +70,11 @@ img {
   }
   a {
     color: var(--color-primary);
+    text-decoration: none !important;
+  }
+  li {
     text-decoration: none;
+    display: inline;
   }
 
  /* Messages */
@@ -232,18 +236,21 @@ hr {
 
 /*footer da pagina*/
 .bg-footer {
-  background: var(--color-debug-light);
-  height: 60px;
+  background:rgba(0, 0, 0, 0.4);
+  height: auto;
   margin-top: 8px;
   color: var(--color-white);
+  padding-top: 20px;
 }
-
+.bg-footer a {
+  color: var(--color-white);
+  font-size: 12px;
+}
+/* Terminou footer da pagina*/
 
 /*sessão formulario de cadastro*/
 
-.input-form {
-  
-}
+
 
 .label-form {
   cursor: default;
@@ -274,13 +281,96 @@ hr {
 .frete-margem {
   margin-top: 60px;
 }
-footer p
-{
-  color: var(--color-dark-text);
-  text-align: center;
-  padding-top: 20px;
-  font-size: 17.5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-weight: bold;
-  color: #1e3094;
+
+.counter {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border: 1px solid var(--color-gray-3);
+  padding: 4px;
+  
+}
+.btn-quantidade {
+  font-size: 15px;
+  
+  cursor: pointer;
+  border: none;
+  background: var(--color-gray-0);
+  color: white;
+  border-radius: 5px;
+  height: 25px;
+  width: 25px;
+}
+
+.inc {
+  padding: 0px;
+  margin: 0px;
+  color: black;
+  font-size: 15px;
+}
+#counterValue {
+  margin: 4px;
+}
+
+.btn-quantidade:hover {
+  background-color: #0056b3;
+}
+.vmalue {
+  min-width: 40px;
+  display: inline-block;
+}
+
+
+/* terminou detalhes do produto*/
+
+/* Detalhes do carrinho */
+
+.img-carrinho {
+  width: 80px;
+  align-items: center;
+  padding-top: 40px;
+}
+.border-carrinho {
+  border: 2px solid var(--color-gray-0);
+  padding: 5px;
+  margin-right: 100px;
+  margin-left: 10px;
+}
+
+.lista-carrinho {margin: 0px;
+  padding-right: 3px;
+}
+.total, .font-perfil{
+  color: var(--color-black);
+}
+.font-perfil {
+  font-size: 14px;
+}
+/* Terminou Detalhes do carrinho */
+
+
+/* sessão entretenimento*/
+.img-intretenimento {
+  width: 800px;
+  height: 300px;
+}
+
+.card-entretenimento {
+  background: rgba(0, 0, 0, 0.1);
+}
+.card-title-entretenimento {
+  color: var(--color-white);
+}
+/* terminou sessão entretenimento*/
+
+.love {
+  width: 30px;
+  margin-top: 4px;
+  margin-left: 8px;
+}
+.love2 {
+  width: 18px;
+  margin-left: 8px;
 }

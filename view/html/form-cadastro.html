@@ -13,8 +13,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
             crossorigin="anonymous">
         <link rel="stylesheet" href="../css/style.css">
-        
         <link rel="stylesheet" href="../css/telaLogin.css">
+	<link rel="stylesheet" href="../css/estilos.css">
+  	<script src="../js/scriptsvalida.js"></script>
         <title>Formulario de registro</title>
         
     </head>
@@ -26,14 +27,14 @@
             <ul>
                 
                 <li><a href="#"><img src="../favoritos.png" alt="favoritos"></a></li>
-                <li><a href="#"><img src="../icons8-sacola-de-compras-50.png" alt=""><sup><strong>2x</strong></sup></a></li>
+                <li><a href="/view/html/carrinho.html"><img src="../icons8-sacola-de-compras-50.png" alt=""><sup><strong>2x</strong></sup></a></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle"data-toggle="dropdown" href="#">
                       <i class="fas fa-user"></i>
                     </a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="telaLogin.html">Entrar</a>
-                        <a class="dropdown-item" href="form-cadastro.html">registrar</a>
+                        <a class="dropdown-item" href="form-cadastro.html">Inscrever-se</a>
                     </div>                  
                 </li>
                 <li><a href="main.html">Página inicial</a></li>
@@ -44,55 +45,62 @@
                 <div class="row"></div>
                 <h1 class="text-center titulo-produto">Formulário de Cadastro</h1>
                 <hr>
-                <form action="">
+                <form action="telaLogin.html" id="registrationForm" onsubmit="return validateForm()" novalidate>
                     <div class="card p-4 pl-6">
                         <div class="row ">
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
-                                    <div class="input-group-prepend">
-                                        <button class="form-control label-form">
-                                            <label for="" class="input-control btn">Nome</label>
+                                <div class="input-group mb-4 form-group">
+                                    <div class="input-group-prepend ">
+                                        <button class="form-control label-form ">
+                                            <label for="" class="input-control btn ">Nome</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
-                                </div>
+                                    <input type="text" class="form-control" id="firstName" name="firstName" required>
+					            </div>
+                                <span class="error error-alert" id="firstNameError">Por favor, preencha o nome.</span>
                             </div>
                         
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
+                                <div class="input-group mb-4 form-group">
                                     <div class="input-group-prepend">
                                         <button class="form-control label-form">
                                             <label for="" class="input-control btn">Sobrenome</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="lastName" name="lastName" required>
+					
                                 </div>
+                                <span class="error error-alert" id="lastNameError">Por favor, preencha o sobrenome.</span>
                             </div>
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
+                                <div class="input-group mb-4 form-group">
                                     <div class="input-group-prepend">
                                         <button class="form-control label-form">
                                             <label for="" class="input-control btn">email</label>
                                         </button>
                                     </div>
-                                    <input type="email" class="form-control">
+                                    <input type="email" class="form-control"  id="email" name="email" required>
+					
                                 </div>
+                                <span class="error error-alert" id="emailError">Por favor, insira um email válido.</span>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
+                                <div class="input-group mb-4 form-group">
                                     <div class="input-group-prepend">
                                         <button class="form-control label-form">
                                             <label for="" class="input-control btn">usuario</label>
                                         </button>
                                     </div>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" id="username" name="username" required>
+					
                                 </div>
+                                <span class="error error-alert" id="usernameError">Por favor, insira um usuario válido.</span>
                             </div>
                         
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
+                                <div class="input-group mb-4">
                                     <div class="input-group-prepend">
                                         <button class="form-control label-form">
                                             <label for="" class="input-control">endereço</label>
@@ -105,17 +113,20 @@
                                         <option class="form-control">São Paulo</option>
                                     </select>
                                     <input type="text" class="form-control ml-2" placeholder="digite seu municipio">
+                                    
                                 </div>
                             </div>
                             <div class="col-md-4 ">
-                                <div class="input-group mb-5">
+                                <div class="input-group mb-4 form-group">
                                     <div class="input-group-prepend">
-                                        <button class="form-control label-form">
+                                        <button class="form-control label-form" >
                                             <label for="" class="input-control btn">senha</label>
                                         </button>
                                     </div>
-                                    <input type="password" class="form-control input-form">
+                                    <input type="password" class="form-control input-form" id="password" name="password" required>
+					
                                 </div>
+                                <span class="error error-alert" id="passwordError">Por favor, preencha a senha.</span>
                             </div>
                         </div>
                         <hr>
